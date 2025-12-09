@@ -32,11 +32,7 @@ export default function Navbar() {
             className="navbar-brand d-flex align-items-center ssma-brand"
             to="/"
           >
-            <img
-              src="/images/LogoTransparent.png"
-              alt="SSMA Logo"
-              className="ssma-logo"
-            />
+            <img src="/images/logo.png" alt="SSMA Logo" className="ssma-logo" />
             <span className="brand-text">SS Music Academy</span>
           </Link>
 

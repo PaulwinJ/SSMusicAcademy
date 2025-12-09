@@ -63,7 +63,6 @@ export default function Services() {
         </p>
       </div>
       {/* QUICK NAVIGATION MENU */}
-      {/* QUICK NAV WITH ICON TILES */}
       <div className="container text-center my-4 animate-up">
         <div className="quick-nav d-flex flex-wrap justify-content-center gap-4">
           {[
@@ -127,7 +126,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_vocal.jpg"
+              src="/images/ear.png"
               alt="vocal"
               className="service-img shadow-lg"
             />
@@ -170,7 +169,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_filmsong.jpg"
+              src="/images/voice.png"
               alt="film song"
               className="service-img shadow-lg"
             />
@@ -252,7 +251,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_violin.jpg"
+              src="/images/music.png"
               alt="violin"
               className="service-img shadow-lg"
             />
@@ -290,7 +289,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_keyboard.jpg"
+              src="/images/play.png"
               alt="keyboard"
               className="service-img shadow-lg"
             />
@@ -328,7 +327,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_guitar.jpg"
+              src="/images/girl.png"
               alt="guitar"
               className="service-img shadow-lg"
             />
@@ -364,7 +363,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_veena.jpg"
+              src="/images/music.png"
               alt="veena"
               className="service-img shadow-lg"
             />
@@ -436,7 +435,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_theory.jpg"
+              src="/images/music-book.png"
               alt="Music Theory"
               className="service-img shadow-lg"
             />
@@ -474,7 +473,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_voice.jpg"
+              src="/images/voice-message.png"
               alt="voice"
               className="service-img shadow-lg"
             />

@@ -66,17 +66,17 @@
   color: #ffffff;
   opacity: 0.08;
   font-size: 30px;
-  animation: floatdown 10s linear infinite;
+  animation: floatup 10s linear infinite;
   pointer-events: none;
 }
 
 /* Floating animation */
-@keyframes floatdown {
+@keyframes floatup {
   0% {
-    transform: translateY(-120vh);
+    transform: translateY(120vh);
   }
   100% {
-    transform: translateY(120vh);
+    transform: translateY(-120vh);
   }
 }
 
@@ -339,7 +339,7 @@
 }
 
 .service-img {
-  width: 100%;
+  width: 55%;
   max-height: 320px;
   object-fit: cover;
   border-radius: 12px;
@@ -566,4 +566,10 @@ h5,
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   z-index: 9999;
+}
+.offer-img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  margin-bottom: 10px;
 }

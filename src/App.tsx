@@ -6,12 +6,14 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import FloatingMenu from "./components/FloatingMenu";
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop /> {/* Auto scroll to top on route change */}
       <Navbar />
+      <FloatingMenu />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

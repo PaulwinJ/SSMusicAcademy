@@ -242,10 +242,10 @@ export default function Contact() {
                 <div>
                   <h5 className="fw-bold mb-1">Email</h5>
                   <a
-                    href="mailto:ssmusicacademy@gmail.com"
+                    href="mailto:musicschoolss@gmail.com"
                     className="text-white text-decoration-none"
                   >
-                    ssmusicacademy@gmail.com
+                    musicschoolss@gmail.com
                   </a>
                 </div>
               </div>

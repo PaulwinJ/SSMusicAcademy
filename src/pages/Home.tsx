@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  // state for floating icon menu
-  const [open, setOpen] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -198,7 +195,7 @@ export default function Home() {
                 desc: "Understand the 'Why' behind every note you sing or play (Pvt.)",
               },
               {
-                icon: "fa-keyboard",
+                img: "/images/piano-musical-instrument.png",
                 title: "Keyboard",
                 desc: "Explore melodies and harmonies with scientific precision and artistic grace (B & Pvt.)",
               },
@@ -208,7 +205,7 @@ export default function Home() {
                 desc: "Learn to express soulful music through strings, from basics to advanced styles (B & Pvt.)",
               },
               {
-                icon: "fa-violin",
+                img: "/images/violin.png",
                 title: "Violin",
                 desc: "Shape your tone and bowing with guided, structured training (B & Pvt.)",
               },
@@ -266,9 +263,17 @@ export default function Home() {
                               onClick={() => navigate("/services")}
                               style={{ cursor: "pointer" }}
                             >
-                              <i
-                                className={`fa-solid ${card.icon} offer-icon`}
-                              ></i>
+                              {card.img ? (
+                                <img
+                                  src={card.img}
+                                  className="offer-img"
+                                  alt={card.title}
+                                />
+                              ) : (
+                                <i
+                                  className={`fa-solid ${card.icon} offer-icon`}
+                                ></i>
+                              )}
                               <h5 className="offer-title">{card.title}</h5>
                               <p className="offer-desc">{card.desc}</p>
                             </div>
@@ -317,7 +322,11 @@ export default function Home() {
               {/* VISION */}
               <div className="ssma-info-item mb-4">
                 <div className="d-flex align-items-center gap-3">
-                  <i className="fa-solid fa-eye ssma-icon"></i>
+                  <img
+                    src="/images/eye.png"
+                    alt="Music Image"
+                    style={{ maxWidth: "3rem" }}
+                  />
                   <h3 className="ssma-active">Our Vision</h3>
                 </div>
                 <p className="mt-2">
@@ -350,49 +359,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* FLOATING MENU ICON */}
-        <div className="floating-icons" onClick={() => setOpen(!open)}>
-          <div className={`icon-menu ${open ? "open" : ""}`}>
-            <a href="#top">
-              <i
-                className="fa-solid fa-arrow-up menu-icon"
-                style={{ color: "#ffffff" }}
-              ></i>
-            </a>
-
-            <a
-              href="https://wa.me/9894778518?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20music%20classes%20at%20SS%20Music%20Academy."
-              target="_blank"
-            >
-              <i
-                className="fa-brands fa-whatsapp menu-icon"
-                style={{ color: "#25D366" }}
-              ></i>
-            </a>
-
-            <a href="https://instagram.com/ssmusic_academy" target="_blank">
-              <i
-                className="fa-brands fa-instagram menu-icon"
-                style={{ color: "#E1306C" }}
-              ></i>
-            </a>
-
-            <a href="https://youtube.com/@ssmusic" target="_blank">
-              <i
-                className="fa-brands fa-youtube menu-icon"
-                style={{ color: "#FF0000" }}
-              ></i>
-            </a>
-          </div>
-
-          <i
-            className={`fa-solid fa-circle-plus main-btn ${
-              open ? "rotate" : ""
-            }`}
-            style={{ color: "#ffd966" }}
-          ></i>
         </div>
       </div>
     </div>

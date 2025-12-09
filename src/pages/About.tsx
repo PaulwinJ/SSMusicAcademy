@@ -58,12 +58,12 @@ export default function About() {
           </div>
 
           {/* RIGHT - TEAM IMAGES */}
-          <div className="col-md-8 d-flex flex-column align-items-center justify-content-center showcase-team-group">
+          <div className="col-md-8 d-flex flex-column align-items-end justify-content-center showcase-team-group">
             {/* Top Single */}
             <img
               src="/images/Viveck.png"
               alt="Founder"
-              className="showcase-team-img mb-3"
+              className="showcase-team-img mb-3 me-2"
               onClick={() =>
                 document
                   .getElementById("ViveckSection")
@@ -72,7 +72,7 @@ export default function About() {
             />
 
             {/* Bottom Two */}
-            <div className="d-flex gap-4 justify-content-center">
+            <div className="d-flex gap-4 justify-content-end w-100">
               <img
                 src="/images/Karthick.png"
                 alt="Manager"
@@ -131,7 +131,7 @@ export default function About() {
           {/* ABOUT TEXT */}
           <div className="col-md-5 text-white">
             <img
-              src="/images/LogoTransparent.png"
+              src="/images/aboutus.png"
               alt="About"
               className="img-fluid rounded shadow-lg ssma-img"
             />
