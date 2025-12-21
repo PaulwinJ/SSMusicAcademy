@@ -19,6 +19,15 @@ export default function About() {
 
     return () => observer.disconnect();
   }, []);
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const yOffset = -120; // adjust based on navbar height
+    const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <div className="pt-5 ssma-home-bg">
@@ -47,9 +56,9 @@ export default function About() {
 
       {/* TOP TEAM SHOWCASE BANNER */}
       <div className="container my-5 animate-up">
-        <div className="row align-items-center justify-content-center showcase-wrapper">
+        <div className="row align-items-center justify-content-between showcase-wrapper">
           {/* LEFT - LOGO */}
-          <div className="col-md-4 text-center mb-3 mb-md-0">
+          <div className="col-6 col-md-4 text-center mb-3 mb-md-0">
             <img
               src="/images/aboutus.png"
               alt="SSMA Logo"
@@ -58,42 +67,39 @@ export default function About() {
           </div>
 
           {/* RIGHT - TEAM IMAGES */}
-          <div className="col-md-8 d-flex flex-column align-items-end justify-content-center showcase-team-group">
+          <div className="col-6 col-md-8 d-flex flex-column align-items-end showcase-team-group">
             {/* Top Single */}
-            <img
-              src="/images/Viveck.png"
-              alt="Founder"
-              className="showcase-team-img mb-3 me-2"
-              onClick={() =>
-                document
-                  .getElementById("ViveckSection")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            />
+            <div className="text-center">
+              <img
+                src="/images/Viveck.png"
+                alt="Founder"
+                className="showcase-team-img mb-2 Viveckimg"
+                onClick={() => scrollToSection("ViveckSection")}
+              />
+              <p className="team-name Viveckimg">Viveck MJ</p>
+            </div>
 
             {/* Bottom Two */}
             <div className="d-flex gap-4 justify-content-end w-100">
-              <img
-                src="/images/Karthick.png"
-                alt="Manager"
-                className="showcase-team-img"
-                onClick={() =>
-                  document
-                    .getElementById("KarthickSection")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              />
+              <div className="text-center">
+                <img
+                  src="/images/Karthick.png"
+                  alt="Manager"
+                  className="showcase-team-img mb-2"
+                  onClick={() => scrollToSection("KarthickSection")}
+                />
+                <p className="team-name">Karthick Kumar J</p>
+              </div>
 
-              <img
-                src="/images/Kabilan.png"
-                alt="Faculty"
-                className="showcase-team-img"
-                onClick={() =>
-                  document
-                    .getElementById("KabilanSection")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              />
+              <div className="text-center">
+                <img
+                  src="/images/Kabilan.png"
+                  alt="Faculty"
+                  className="showcase-team-img mb-2"
+                  onClick={() => scrollToSection("KabilanSection")}
+                />
+                <p className="team-name">Kabilan J</p>
+              </div>
             </div>
           </div>
         </div>

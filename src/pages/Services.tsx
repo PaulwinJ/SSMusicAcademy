@@ -57,32 +57,37 @@ export default function Services() {
       {/* PAGE TITLE */}
       <div className="container text-center my-5 animate-up">
         <h2 className="ssma-active ssma-heading1">Our Services</h2>
-        <p className="lead text-white mt-3">
+        <p className="lead text-center text-white mt-3">
           Explore our musical programs designed for learners from beginner to
           advanced levels.
         </p>
       </div>
       {/* QUICK NAVIGATION MENU */}
       <div className="container text-center my-4 animate-up">
-        <div className="quick-nav d-flex flex-wrap justify-content-center gap-4">
+        <div className="quick-nav">
           {[
             { name: "Carnatic Vocals", icon: "fa-microphone-lines" },
-            { name: "Film Song Tamil", icon: "fa-music" },
+            { name: "Film Song Tamil", img: "/images/clapperboard.png" },
             { name: "Devotional Songs", icon: "fa-hands-praying" },
-            { name: "Violin", icon: "fa-violin" },
-            { name: "Keyboard", icon: "fa-keyboard" },
-            { name: "Guitar", icon: "fa-guitar" },
-            { name: "Veena", icon: "fa-music" },
+            { name: "Violin", img: "/images/violinlogo.png" },
+            { name: "Keyboard", img: "/images/piano-musical-instrument.png" },
+            { name: "Guitar", img: "/images/guitarlogo.png" },
+            { name: "Veena", img: "/images/instrument.png" },
             { name: "Mrudhangam", icon: "fa-drum" },
             { name: "Music Theory", icon: "fa-book-open" },
-            { name: "Voice Consultation", icon: "fa-user-voice" },
+            { name: "Voice Consultation", img: "/images/talking.png" },
           ].map((item) => (
             <div
               key={item.name}
               onClick={() => scrollToService(item.name.replace(/\s+/g, ""))}
               className="quick-tile"
             >
-              <i className={`fa-solid ${item.icon} quick-icon`}></i>
+              {item.img ? (
+                <img src={item.img} alt={item.name} className="offer-img" />
+              ) : (
+                <i className={`fa-solid ${item.icon} quick-icon`}></i>
+              )}
+
               <span className="quick-label">{item.name}</span>
             </div>
           ))}
@@ -126,7 +131,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/ear.png"
+              src="/images/CarnaticVocals.png"
               alt="vocal"
               className="service-img shadow-lg"
             />
@@ -169,7 +174,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/voice.png"
+              src="/images/Film songs.png"
               alt="film song"
               className="service-img shadow-lg"
             />
@@ -211,7 +216,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_devotional.jpg"
+              src="/images/Devotional.png"
               alt="devotional"
               className="service-img shadow-lg"
             />
@@ -251,7 +256,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/music.png"
+              src="/images/Violin.png"
               alt="violin"
               className="service-img shadow-lg"
             />
@@ -289,7 +294,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/play.png"
+              src="/images/Keyboard.png"
               alt="keyboard"
               className="service-img shadow-lg"
             />
@@ -327,7 +332,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/girl.png"
+              src="/images/Guitar.png"
               alt="guitar"
               className="service-img shadow-lg"
             />
@@ -363,9 +368,9 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/music.png"
+              src="/images/Veenai.png"
               alt="veena"
-              className="service-img shadow-lg"
+              className="service-img1 shadow-lg"
             />
           </div>
         </div>
@@ -402,7 +407,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/sv_mrudhangam.jpg"
+              src="/images/Mrudhangam.png"
               alt="Mrudhangam"
               className="service-img shadow-lg"
             />
@@ -435,7 +440,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/music-book.png"
+              src="/images/Music Theory.png"
               alt="Music Theory"
               className="service-img shadow-lg"
             />
@@ -473,7 +478,7 @@ export default function Services() {
           </div>
           <div className="col-md-5 text-center">
             <img
-              src="/images/voice-message.png"
+              src="/images/VoiceConsultation.PNG"
               alt="voice"
               className="service-img shadow-lg"
             />

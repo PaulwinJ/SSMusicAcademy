@@ -1,111 +1,79 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const location = useLocation();
+  const navRef = useRef<HTMLUListElement>(null);
+
+  const [underline, setUnderline] = useState({
+    left: 0,
+    width: 0,
+  });
+
   const isActive = (path: string) => location.pathname === path;
 
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!navRef.current) return;
 
-  // Close mobile menu on navigation
-  useEffect(() => {
-    setOpen(false);
+    const activeLink = navRef.current.querySelector(
+      ".ssma-nav-link.ssma-active"
+    ) as HTMLElement;
+
+    if (activeLink) {
+      const { offsetLeft, offsetWidth } = activeLink;
+      const reducedWidth = offsetWidth * 0.6;
+      const centeredLeft = offsetLeft + (offsetWidth - reducedWidth) / 2;
+
+      setUnderline({
+        left: centeredLeft,
+        width: reducedWidth,
+      });
+    }
   }, [location.pathname]);
 
   return (
     <>
-      {/* DESKTOP / TABLET NAVBAR */}
-      <nav
-        className={`navbar navbar-expand-lg fixed-top ssma-navbar d-none d-lg-flex ${
-          scrolled ? "ssma-navbar-scrolled" : ""
-        }`}
-      >
+      {/* DESKTOP NAVBAR */}
+      <nav className="navbar navbar-expand-lg fixed-top ssma-navbar d-none d-lg-flex">
         <div className="container-fluid">
           <Link
-            className="navbar-brand d-flex align-items-center ssma-brand"
+            className="navbar-brand ssma-brand d-flex align-items-center"
             to="/"
           >
             <img src="/images/logo.png" alt="SSMA Logo" className="ssma-logo" />
             <span className="brand-text">SS Music Academy</span>
           </Link>
 
-          <div>
-            <ul className="navbar-nav ms-auto">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About Us", path: "/about" },
-                { name: "Services", path: "/services" },
-                { name: "Contact", path: "/contact" },
-              ].map((item, index) => (
-                <li className="nav-item" key={index}>
-                  <Link
-                    className={`nav-link ssma-nav-link ${
-                      isActive(item.path) ? "ssma-active" : ""
-                    }`}
-                    to={item.path}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </nav>
+          <ul className="navbar-nav ms-auto position-relative" ref={navRef}>
+            {[
+              { name: "Home", path: "/" },
+              { name: "About Us", path: "/about" },
+              { name: "Services", path: "/services" },
+              { name: "Contact", path: "/contact" },
+            ].map((item, index) => (
+              <li className="nav-item" key={index}>
+                <Link
+                  className={`nav-link ssma-nav-link ${
+                    isActive(item.path) ? "ssma-active" : ""
+                  }`}
+                  to={item.path}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
 
-      {/* MOBILE NAVBAR (VISIBLE ONLY < LG) */}
-      <nav className="navbar fixed-top ssma-navbar d-flex d-lg-none">
-        <div className="container-fluid">
-          <Link
-            to="/"
-            className="navbar-brand ssma-brand d-flex align-items-center"
-          >
-            <img
-              src="/images/LogoTransparent.png"
-              alt="SSMA Logo"
-              className="ssma-logo"
+            {/* 🔥 Animated underline */}
+            <span
+              className="nav-underline"
+              style={{
+                transform: `translateX(${underline.left}px)`,
+                width: underline.width,
+              }}
             />
-            <span className="brand-text">SS Music Academy</span>
-          </Link>
-
-          <button
-            className="navbar-toggler ssma-toggler"
-            onClick={() => setOpen(!open)}
-          >
-            <i className="fa-solid fa-bars text-white"></i>
-          </button>
+          </ul>
         </div>
       </nav>
-
-      {/* MOBILE SLIDE MENU */}
-      <div className={`mobile-menu d-lg-none ${open ? "open" : ""}`}>
-        <ul className="navbar-nav">
-          {[
-            { name: "Home", path: "/" },
-            { name: "About Us", path: "/about" },
-            { name: "Services", path: "/services" },
-            { name: "Contact", path: "/contact" },
-          ].map((item, index) => (
-            <li className="nav-item" key={index}>
-              <Link
-                className={`nav-link ssma-nav-link ${
-                  isActive(item.path) ? "ssma-active" : ""
-                }`}
-                to={item.path}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
     </>
   );
 }

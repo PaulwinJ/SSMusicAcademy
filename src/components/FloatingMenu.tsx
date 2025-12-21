@@ -30,7 +30,10 @@ export default function FloatingMenu() {
           ></i>
         </a>
 
-        <a href="https://youtube.com/@ssmusic" target="_blank">
+        <a
+          href="https://youtube.com/@ssmusicacademy16?si=Lf_tpa6saiUbEhZ3"
+          target="_blank"
+        >
           <i
             className="fa-brands fa-youtube menu-icon"
             style={{ color: "#FF0000" }}

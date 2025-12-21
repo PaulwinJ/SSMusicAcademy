@@ -57,6 +57,7 @@ export default function Home() {
               src="/images/Home.png"
               alt="banner"
               className="img-fluid w-100 hero-banner"
+              style={{ marginTop: "-1.6rem" }}
             />
           </div>
         </div>
@@ -181,7 +182,6 @@ export default function Home() {
             Our Offerings
           </h2>
 
-          {/* data array */}
           {(() => {
             const offerings = [
               {
@@ -200,24 +200,24 @@ export default function Home() {
                 desc: "Explore melodies and harmonies with scientific precision and artistic grace (B & Pvt.)",
               },
               {
-                icon: "fa-guitar",
+                img: "/images/guitarlogo.png",
                 title: "Guitar",
                 desc: "Learn to express soulful music through strings, from basics to advanced styles (B & Pvt.)",
               },
               {
-                img: "/images/violin.png",
+                img: "/images/violinlogo.png",
                 title: "Violin",
                 desc: "Shape your tone and bowing with guided, structured training (B & Pvt.)",
               },
               {
-                icon: "fa-music",
+                img: "/images/instrument.png",
                 title: "Veena",
-                desc: "Discover the depth and divinity of this ancient string instrument in a personalized way (Pvt.)",
+                desc: "Discover the depth and divinity of this ancient instrument (Pvt.)",
               },
               {
                 icon: "fa-drum",
                 title: "Mrudhangam",
-                desc: "Build solid rhythm foundations with a focus on clarity and technique (Pvt.)",
+                desc: "Build solid rhythm foundations with clarity and technique (Pvt.)",
               },
               {
                 icon: "fa-user",
@@ -231,10 +231,12 @@ export default function Home() {
               },
             ];
 
-            // chunk into groups of 4
+            const isMobile = window.innerWidth < 768;
+            const chunkSize = isMobile ? 2 : 4;
+
             const slides: (typeof offerings)[] = [];
-            for (let i = 0; i < offerings.length; i += 4) {
-              slides.push(offerings.slice(i, i + 4));
+            for (let i = 0; i < offerings.length; i += chunkSize) {
+              slides.push(offerings.slice(i, i + chunkSize));
             }
 
             return (
@@ -245,18 +247,17 @@ export default function Home() {
                 data-bs-interval="3000"
               >
                 <div className="carousel-inner">
-                  {slides.map((group, slideIndex) => (
+                  {slides.map((group, index) => (
                     <div
-                      className={`carousel-item ${
-                        slideIndex === 0 ? "active" : ""
-                      }`}
-                      key={slideIndex}
+                      className={`carousel-item ${index === 0 ? "active" : ""}`}
+                      key={index}
                     >
                       <div className="row justify-content-center">
                         {group.map((card, cardIndex) => (
                           <div
-                            className="col-12 col-sm-6 col-md-3"
                             key={cardIndex}
+                            className={isMobile ? "col-12" : "col-6 col-md-3"}
+                            style={{ minWidth: isMobile ? "100%" : "auto" }}
                           >
                             <div
                               className="offer-card h-100"
@@ -272,8 +273,9 @@ export default function Home() {
                               ) : (
                                 <i
                                   className={`fa-solid ${card.icon} offer-icon`}
-                                ></i>
+                                />
                               )}
+
                               <h5 className="offer-title">{card.title}</h5>
                               <p className="offer-desc">{card.desc}</p>
                             </div>
@@ -284,7 +286,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Controls */}
+                {/* CONTROLS */}
                 <button
                   className="carousel-control-prev"
                   type="button"

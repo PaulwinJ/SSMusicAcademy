@@ -1,7 +1,3 @@
-/* ===========================
-   SSMA COMMON STYLES
-   =========================== */
-
 /* Navbar default (solid black) */
 .ssma-navbar {
   background-color: #000000 !important;
@@ -13,6 +9,30 @@
   background-color: rgba(0, 0, 0, 0.65) !important;
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+.ssma-nav-link {
+  position: relative;
+  padding: 8px 16px;
+  color: #ffd966;
+  font-weight: 500;
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background: #ffd966;
+  transition: transform 0.35s ease, width 0.35s ease;
+  border-radius: 2px;
+}
+
+/* Optional glow effect */
+.nav-underline {
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 /* Brand (Logo title) */
@@ -66,7 +86,7 @@
   color: #ffffff;
   opacity: 0.08;
   font-size: 30px;
-  animation: floatup 10s linear infinite;
+  animation: floatup 25s linear infinite;
   pointer-events: none;
 }
 
@@ -339,12 +359,17 @@
 }
 
 .service-img {
-  width: 55%;
+  width: 50%;
   max-height: 320px;
   object-fit: cover;
   border-radius: 12px;
 }
-
+.service-img1 {
+  width: 75%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 /* Delivery box styling */
 .delivery-box {
   border-left: 6px solid #ffd966;
@@ -457,54 +482,58 @@ h5,
   font-weight: bold;
 }
 .quick-nav {
-  max-width: 900px;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 tiles per row */
+  gap: 18px;
 }
 
 .quick-tile {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 217, 102, 0.4);
-  border-radius: 14px;
-  padding: 18px 15px;
-  width: 120px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 217, 102, 0.3);
+  border-radius: 12px;
+  padding: 18px 10px;
   cursor: pointer;
+  transition: 0.3s ease;
   text-align: center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s;
+  min-height: 120px; /* Equal height for all */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .quick-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px rgba(255, 217, 102, 0.7);
-  border-color: #ffd966;
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px rgba(255, 217, 102, 0.4);
 }
 
 .quick-icon {
-  font-size: 34px;
-  color: #ffd966;
+  font-size: 2.4rem;
   margin-bottom: 8px;
+  color: #ffd966;
 }
 
 .quick-label {
-  font-size: 14px;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
-  line-height: 1.2;
+  font-size: 14px;
+}
+@media (max-width: 992px) {
+  .quick-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Mobile */
 @media (max-width: 576px) {
   .quick-nav {
-    overflow-x: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 12px;
-    padding-bottom: 8px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .quick-tile {
-    min-width: 110px;
+    min-height: 110px;
   }
 }
+
 .mission {
   width: 2.3rem;
 }
@@ -516,7 +545,7 @@ h5,
 }
 
 .showcase-logo {
-  max-width: 25rem !important;
+  max-width: 21rem !important;
 }
 
 .showcase-team-grid {
@@ -530,8 +559,8 @@ h5,
 }
 
 .showcase-team-img {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ffd966;
@@ -544,20 +573,41 @@ h5,
   box-shadow: 0 0 35px rgba(255, 217, 102, 0.65);
 }
 
-/* Mobile Version */
+.team-name {
+  font-size: 0.9rem;
+  color: #ffd966;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Keep logo + images in same row on mobile */
 @media (max-width: 768px) {
-  .showcase-team-group {
+  .showcase-wrapper {
     flex-direction: row !important;
-    overflow-x: auto;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .showcase-team-group {
+    align-items: center !important;
   }
 
   .showcase-team-img {
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .team-name {
+    font-size: 0.75rem;
+  }
+  .showcase-logo {
+    max-width: 15rem !important;
+  }
+  .Viveckimg {
+    margin-right: 3.5rem !important;
   }
 }
+
 .freeze-screen {
   position: fixed;
   top: 0;
@@ -568,8 +618,11 @@ h5,
   z-index: 9999;
 }
 .offer-img {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
   margin-bottom: 10px;
+}
+.Viveckimg {
+  margin-right: 5rem;
 }

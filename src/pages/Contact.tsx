@@ -99,7 +99,7 @@ export default function Contact() {
           style={{ zIndex: 1, paddingTop: "22rem" }}
         >
           <iframe
-            src="https://www.google.com/maps?q=Valar+Nagar,+Uthangudi,+Madurai&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d796.9241523098094!2d78.17562608362086!3d9.947386263464782!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5b5092bf811%3A0x6599a8dcb376506d!2sSS%20Music%20Academy!5e0!3m2!1sen!2sus!4v1765782475641!5m2!1sen!2sus"
             width="100%"
             height="100%"
             style={{ border: 0, filter: "brightness(65%)" }}
@@ -264,7 +264,10 @@ export default function Contact() {
                     style={{ color: "#E1306C" }}
                   ></i>
                 </a>
-                <a href="https://youtube.com" target="_blank">
+                <a
+                  href="https://youtube.com/@ssmusicacademy16?si=Lf_tpa6saiUbEhZ3"
+                  target="_blank"
+                >
                   <i
                     className="fa-brands fa-youtube fa-2x"
                     style={{ color: "#FF0000" }}
@@ -273,7 +276,7 @@ export default function Contact() {
 
                 {/* MAP ICON ONLY MOBILE */}
                 <a
-                  href="https://www.google.com/maps?q=Valar+Nagar,+Uthangudi,+Madurai"
+                  href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d796.9241523098094!2d78.17562608362086!3d9.947386263464782!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5b5092bf811%3A0x6599a8dcb376506d!2sSS%20Music%20Academy!5e0!3m2!1sen!2sus!4v1765782475641!5m2!1sen!2sus"
                   target="_blank"
                   className="d-lg-none"
                 >
